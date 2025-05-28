@@ -1,0 +1,51 @@
+{
+    "textos": {
+      "not_complete": [],
+      "all": []
+    },
+    "user_info": {
+      "user": [],
+      "user_level": [],
+      "data_user_level": {},
+      "join_year_user": [],
+      "data_join_year_user": {},
+      "rating": {
+        "user_rating": [],
+        "data_user_rating": {}
+      },
+      "orders": {
+        "total": [],
+        "data_total_orders": {},
+        "data_completed_orders":{},
+        "completed": []
+      }
+    },
+    "market_info": {
+      "especializado": [],
+      "tipo_producto": [],
+      "precio": []
+    },
+    "sales_info": {
+      "total_sales_producto": []
+    },
+    "quality_info": {
+      "quality_user_rating": [],
+      "data_quality_user":{},
+      "shipping_user_rating": [],
+      "data_shipping_user_rating":{},
+      "communication_user_rating": [],
+      "data_communication_user_rating": {}
+    },
+    "place_info": {
+      "lugar": []
+    },
+    "feedback_info": {
+      "list_positive_feedback": [],
+      "data_positive_feedback": {},
+      "list_neutral_feedback": [],
+      "data_neutral_feedback": {},
+      "list_negative_feedback": [],
+      "data_negative_feedback": {}
+    }
+  }
+  

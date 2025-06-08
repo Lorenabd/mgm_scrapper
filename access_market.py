@@ -15,6 +15,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from lxml import html
 from market_scraping import ScrapingMarket
 import os
+from PyQt5.QtGui import QIcon, QFont
 
 
 
@@ -37,6 +38,7 @@ class AccessMarket():
         main_driver = webdriver.Firefox(options=options)
         connect_button = main_driver.find_element(By.XPATH,'//*[@id="connectButton"]')
         connect_button.click()
+        print("conect button clicked")
         time.sleep(5)
         url="https://ngemgrlhmdqi3zsgscjgjrbwpietxf3kbwjfzrarb4h6f3nimjsiu7yd.top/signin" #MGM MARKET
         main_driver.get(url)
@@ -50,32 +52,32 @@ class AccessMarket():
         self.pop_up_info(main_driver)
         
     def pop_up_info(self,main_driver):
-        # Crear la aplicación y la ventana
         app = QApplication(sys.argv)
         ventana = QWidget()
-        ventana.setWindowTitle('Ventana de Ejecución')
+        ventana.setWindowTitle('Important Information!')
+        ventana.setStyleSheet("QWidget { font-size: 20px; }")
 
-        # Crear los widgets
-        mensaje = QLabel("Navega a la categoría donde quieres empezar a escrapear\n y presiona CONTINUAR para continuar")
-        boton_continuar = QPushButton('Continuar')
+        ventana.setWindowIcon(QIcon("./icon.png"))  
 
-        # Conectar el botón a la función de continuar
-        boton_continuar.clicked.connect(lambda: self.close_pop_up_info(ventana,main_driver))
+        mensaje = QLabel("Navigate to the category where you want to start\n scrapping and press CONTINUE to start.")
+        boton_continuar = QPushButton('Continue')
 
-        # Diseño de la ventana
+        mensaje.setFont(QFont("Arial", 14)) 
+        boton_continuar.setFont(QFont("Arial", 12))  
+
+        boton_continuar.clicked.connect(lambda: self.close_pop_up_info(ventana, main_driver))
+
         layout = QVBoxLayout()
         layout.addWidget(mensaje)
         layout.addWidget(boton_continuar)
 
-        # Configurar la ventana
         ventana.setLayout(layout)
-        ventana.setGeometry(400, 400, 300, 150)  # Establecer tamaño de la ventana
 
-        # Mostrar la ventana
+
+        ventana.resize(400, 200)
+
         ventana.show()
-
-        # Ejecutar la aplicación
-        app.exec_() 
+        app.exec_()
         
     def close_pop_up_info(self,ventana,main_driver):
         ventana.close()
